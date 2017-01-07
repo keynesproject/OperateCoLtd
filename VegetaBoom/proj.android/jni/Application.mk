@@ -6,7 +6,7 @@ APP_CPPFLAGS := -frtti \
 -fsigned-char
 APP_LDFLAGS := -latomic
 
-APP_ABI := armeabi
+APP_ABI := armeabi-v7a
 
 
 ifeq ($(NDK_DEBUG),1)
@@ -16,4 +16,4 @@ else
 APP_CPPFLAGS += -DNDEBUG
 APP_OPTIM := release
 endif
-APP_PLATFORM := android-9
+APP_PLATFORM := android-17

@@ -3,6 +3,8 @@
 
 #include "cocos2d.h"
 
+USING_NS_CC;
+
 class HelloWorld : public cocos2d::Layer
 {
 public:
@@ -12,9 +14,15 @@ public:
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
-    
-    // implement the "static create()" method manually
-    CREATE_FUNC(HelloWorld);
+	
+	// implement the "static create()" method manually
+	CREATE_FUNC(HelloWorld);
+
+    void onMouseDown(Event *event);
+
+private:
+    Sprite *m_sLogo;
+    Label  *m_lHelloWorld;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

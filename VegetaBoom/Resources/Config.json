@@ -1,0 +1,97 @@
+{
+  "DirFont"      : "./Data/Fonts/",
+  "DirImage"     : "./Data/Image/",
+  "DirMusic"     : "./Data/Music/",
+  "DirCharacter" : "./Data/Character/",
+    
+  "SceneLogo" :
+  {
+    "Music" :
+    {
+      "__HELP"     : [ "FileName", "IsLoop", "Music(true)OrSound(false)" ],
+      "BgLogo"     : [ "", false, true ],
+      "LogoStart"  : [ "S_Logo_Start.wav", false, false ]
+    },
+  
+    "Image" :
+    {
+      "__HELP" : [ "FileName", "AniNo", "AniSpeed(Sec/Pic)", "MusicArray"  ],
+      "Logo"   : [ "LOGO.png", 1, 1.0, ["", false, false ] ]
+    }
+  },
+  
+  "SceneGamePlay" :  
+  {
+    "Font" :
+    {
+        "__HELP" : [ "FileName", "isTTF", "DigitWidth", "DigitHigh", "Align(0L,1M,2R)"],
+        "FontTTF1" : [ "arial.ttf", true, 0, 0, 2],
+        "FontTTF2" : [ "MarkerFelt.ttf", true, 0, 0, 2],
+        "FontNumDistance" : [ "FontNum.png", false, 16, 23, 2]
+    },
+  
+    "Music" :
+    {   
+        "__HELP"     : [ "FileName", "PlayTime", "IsLoop", "Music(true)OrSound(false)" ],
+        "BgStart"    : [ "", true, true ],
+        "BgGamePlay" : [ "M_Game_Bg.mp3", true, true ]
+    },
+    
+    "Image" :
+    {
+        "__HELP" : [ "FileName", "AniNum", "AniSpeed(Sec/Pic)", "MusicArray"  ],
+        "Title"  : [ "Title.png", 1, 1.0, ["", false, false ] ],
+        "Cloud"  : [ "Cloud.png", 9, 1.0, ["", false, false ] ],        
+        "BtnPauseN"  : [ "BtnPauseNormal.png", 1, 1.0, ["", false, false ] ],
+        "BtnPauseS"  : [ "BtnPauseSelected.png", 1, 1.0, ["", false, false ] ], 
+        "BtnResumeN" : [ "BtnResumeNormal.png", 1, 1.0, ["", false, false ] ],
+        "BtnResumeS" : [ "BtnResumeSelected.png", 1, 1.0, ["", false, false ] ],
+        "Cabbage" : [ "Cabbage.png", 2, 3.0, ["", false, false ] ]
+    },
+    
+    "Character" : 
+    {
+      "Cabbage" : 
+      {
+        "ImgRush"   : [ "Rush_Cabbage.png",  2, 3.0, ["CabbageRush.mp3",  true,  false] ],
+        "ImgTouch"  : [ "Rush_Cabbage.png",  2, 3.0, ["CabbageTouch.mp3", false, false] ],
+        "ImgFall"   : [ "Fall_Cabbage.png",  1, 1.0, ["CabbageFall.mp3",  false, false] ],
+        "ImgBomb"   : [ "Bomb.png",          5, 1.0, ["CabbageBomb.mp3",  false, false] ],
+        "ScaleStart": 0.1,
+        "ScaleEnd"  : 0.5,
+        "Type"      : 0,
+        "Satellite" : 0,
+        "MoveOutSec": 3.0,
+        "BlowUpSec" : 2.0
+      },
+      
+      "Cauliflower" : 
+      {
+        "ImgRush"   : [ "Rush_Cauliflower.png", 2, 3.0, ["CauliflowerRush.mp3",  true,  false] ],
+        "ImgTouch"  : [ "Rush_Cauliflower.png", 2, 3.0, ["CauliflowerTouch.mp3", false, false] ],
+        "ImgFall"   : [ "Fall_Cauliflower.png", 1, 1.0, ["CauliflowerFall.mp3",  false, false] ],
+        "ImgBomb"   : [ "Bomb.png",             5, 1.0, ["CauliflowerBomb.mp3",  false, false] ],
+        "ScaleStart": 0.1,
+        "ScaleEnd"  : 0.5,
+        "Type"      : 1,
+        "Satellite" : 0,
+        "MoveOutSec": 3.0,
+        "BlowUpSec" : 2.0
+      },
+      
+      "Vege" : 
+      {
+        "ImgRush"   : [ "Rush_Vege.png",  2, 3.0, ["VegeRush.mp3",  true,  false] ],
+        "ImgTouch"  : [ "Touch_Vege.png", 2, 3.0, ["VegeTouch.mp3", false, false] ],
+        "ImgFall"   : [ "Fall_Vege.png",  1, 1.0, ["VegeFall.mp3",  false, false] ],
+        "ImgBomb"   : [ "Bomb_Vege.png",  5, 3.0, ["VegeBomb.mp3",  false, false] ],
+        "ScaleStart": 0.5,
+        "ScaleEnd"  : 1.0,
+        "Type"      : 1,
+        "Satellite" : 0,
+        "MoveOutSec": 3.0,
+        "BlowUpSec" : 2.0
+      }
+    }
+  }
+}

@@ -1,21 +1,22 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+#include "SimpleAudioEngine.h"
+#include "oConfig.h"
+#include "oSceneLogo.h"
+#include "oSceneGameplay.h"
 #ifdef SDKBOX_ENABLED
-#include "PluginSdkboxPlay/PluginSdkboxPlay.h"
-#endif
-#ifdef SDKBOX_ENABLED
-#include "PluginSdkboxAds/PluginSdkboxAds.h"
-#endif
-#ifdef SDKBOX_ENABLED
-#include "PluginChartboost/PluginChartboost.h"
-#endif
-#ifdef SDKBOX_ENABLED
+#include <android/log.h>
 #include "PluginAdMob/PluginAdMob.h"
+#include "PluginAdColony/PluginAdColony.h"
 #endif
 
 USING_NS_CC;
 
-static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320);
+#define  LOG_TAG    "AppDelegate.cpp"
+#define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
+
+
+//static cocos2d::Size designResolutionSize = cocos2d::Size(480, 320);
+static cocos2d::Size designResolutionSize = cocos2d::Size(600, 800);
 static cocos2d::Size smallResolutionSize = cocos2d::Size(480, 320);
 static cocos2d::Size mediumResolutionSize = cocos2d::Size(1024, 768);
 static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
@@ -45,23 +46,19 @@ static int register_all_packages()
     return 0; //flag for packages manager
 }
 
-bool AppDelegate::applicationDidFinishLaunching() {
+bool AppDelegate::applicationDidFinishLaunching() 
+{
+    cocos2d::log("11111111");
 #ifdef SDKBOX_ENABLED
-    sdkbox::PluginSdkboxPlay::init();
+
 #endif
-#ifdef SDKBOX_ENABLED
-    sdkbox::PluginSdkboxAds::init();
-#endif
-#ifdef SDKBOX_ENABLED
-    sdkbox::PluginChartboost::init();
-#endif
-#ifdef SDKBOX_ENABLED
-    sdkbox::PluginAdMob::init();
-#endif
+    cocos2d::log("333333333");
+    
     // initialize director
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
-    if(!glview) {
+    if(!glview) 
+    {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
         glview = GLViewImpl::createWithRect("VegetaBoom", cocos2d::Rect(0, 0, designResolutionSize.width, designResolutionSize.height));
 #else
@@ -69,19 +66,19 @@ bool AppDelegate::applicationDidFinishLaunching() {
 #endif
         director->setOpenGLView(glview);
     }
-
+    
     // turn on display FPS
     director->setDisplayStats(true);
 
-    // set FPS. the default value is 1.0/60 if you don't call this
-    director->setAnimationInterval(1.0f / 60);
+    // set FPS. the default value is 1.0/24 if you don't call this
+    director->setAnimationInterval( 1.0f / 30 );
 
     // Set the design resolution
     glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::NO_BORDER);
     auto frameSize = glview->getFrameSize();
     // if the frame's height is larger than the height of medium size.
     if (frameSize.height > mediumResolutionSize.height)
-    {        
+    {
         director->setContentScaleFactor(MIN(largeResolutionSize.height/designResolutionSize.height, largeResolutionSize.width/designResolutionSize.width));
     }
     // if the frame's height is larger than the height of small size.
@@ -97,8 +94,16 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     register_all_packages();
 
+    //Load Scene Config;//
+    if (!oConfig::getInstance()->LoadJsonConfig())
+    {
+        cocos2d::log("[ oConfig ] Load Json Config Error <<<<<");
+        return false;
+    }
+
     // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene();
+    auto scene = oSceneLogo::createScene();
+    //auto scene = oSceneGamePlay::createScene();
 
     // run
     director->runWithScene(scene);
@@ -107,17 +112,23 @@ bool AppDelegate::applicationDidFinishLaunching() {
 }
 
 // This function will be called when the app is inactive. Note, when receiving a phone call it is invoked.
-void AppDelegate::applicationDidEnterBackground() {
+void AppDelegate::applicationDidEnterBackground() 
+{
     Director::getInstance()->stopAnimation();
 
     // if you use SimpleAudioEngine, it must be paused
-    // SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+    CocosDenshion::SimpleAudioEngine::getInstance()->pauseBackgroundMusic();
+
+    Director::getInstance()->stopAnimation();
 }
 
 // this function will be called when the app is active again
-void AppDelegate::applicationWillEnterForeground() {
+void AppDelegate::applicationWillEnterForeground() 
+{
     Director::getInstance()->startAnimation();
 
     // if you use SimpleAudioEngine, it must resume here
-    // SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+    CocosDenshion::SimpleAudioEngine::getInstance()->resumeBackgroundMusic();
+
+    Director::getInstance()->startAnimation();
 }

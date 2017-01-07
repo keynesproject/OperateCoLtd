@@ -83,30 +83,35 @@
         "sdkboxplay": {
             "leaderboards": [
                 {
-                    "id": "CgkI0sux8sMWEAIQAA", 
-                    "name": "ldb1"
+                    "id": "CgkIwqPRzNMCEAIQAQ", 
+                    "name": "BEST DISTANCE"
                 }
             ], 
             "achievements": [
                 {
                     "incremental": false, 
-                    "id": "CgkI0sux8sMWEAIQAg", 
-                    "name": "ten-games"
+                    "id": "CgkIwqPRzNMCEAIQAg ", 
+                    "name": "Games"
                 }, 
                 {
                     "incremental": false, 
-                    "id": "CgkI0sux8sMWEAIQAw", 
-                    "name": "hunter"
+                    "id": "CgkIwqPRzNMCEAIQBA", 
+                    "name": "Bomb Times"
                 }, 
                 {
                     "incremental": false, 
-                    "id": "CgkI0sux8sMWEAIQBA", 
-                    "name": "craftsman"
+                    "id": "CgkIwqPRzNMCEAIQBQ", 
+                    "name": "Vegetables"
                 }, 
                 {
                     "incremental": true, 
-                    "id": "CgkI0sux8sMWEAIQBQ", 
-                    "name": "incremental"
+                    "id": "CgkIwqPRzNMCEAIQBg", 
+                    "name": "Coins"
+                },
+                {
+                    "incremental": true, 
+                    "id": "CgkIwqPRzNMCEAIQBw", 
+                    "name": "View Ads"
                 }
             ], 
             "connect_on_start": false, 
@@ -226,12 +231,12 @@
             }
         }, 
         "Chartboost": {
-            "id": "4f7b433509b6025804000002", 
             "cache": {
                 "Default": true, 
                 "Level Complete": true, 
                 "__ADS__": true
             }, 
+            "signature": "dd2d41b69ac01b80f443f5b6cf06096d457f82bd", 
             "ads": {
                 "Default": {
                     "type": "interstitial"
@@ -243,7 +248,7 @@
                     "type": "more_app"
                 }
             }, 
-            "signature": "dd2d41b69ac01b80f443f5b6cf06096d457f82bd"
+            "id": "4f7b433509b6025804000002"
         }, 
         "iap": {
             "items": {
@@ -266,9 +271,13 @@
         }
     }, 
     "ios": {
-        "Fyber": {
-            "token": "34a9643edf4d3052d2bc1928b2e34d8d", 
-            "appid": "35561"
+        "LeadBolt": {
+            "api_key": "8uc8Kd5b6LoyJZCAsFUCY2sWmSJkXZ6c", 
+            "ads": {
+                "ad1": {
+                    "name": "inapp"
+                }
+            }
         }, 
         "SdkboxAds": {
             "debug": true, 
@@ -403,13 +412,9 @@
                 }
             }
         }, 
-        "LeadBolt": {
-            "api_key": "8uc8Kd5b6LoyJZCAsFUCY2sWmSJkXZ6c", 
-            "ads": {
-                "ad1": {
-                    "name": "inapp"
-                }
-            }
+        "Fyber": {
+            "token": "34a9643edf4d3052d2bc1928b2e34d8d", 
+            "appid": "35561"
         }, 
         "InMobi": {
             "version": 1, 
@@ -450,7 +455,7 @@
             }
         }, 
         "Chartboost": {
-            "id": "4f21c409cd1cb2fb7000001b", 
+            "signature": "92e2de2fd7070327bdeb54c15a5295309c6fcd2d", 
             "ads": {
                 "Default": {
                     "type": "interstitial"
@@ -462,7 +467,7 @@
                     "type": "more_app"
                 }
             }, 
-            "signature": "92e2de2fd7070327bdeb54c15a5295309c6fcd2d"
+            "id": "4f21c409cd1cb2fb7000001b"
         }, 
         "AdColony": {
             "id": "appbdee68ae27024084bb334a", 
